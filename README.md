@@ -1,16 +1,31 @@
-# agri_rent
+# 🚜 Agri Rent  
 
-A new Flutter project.
+Agri Rent is a mobile + backend application designed to **bridge the gap between farmers and vehicle owners**.  
+Farmers can easily **rent agricultural vehicles** while owners can **list and earn** from their idle machinery.  
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## ✨ Features
+- 👨‍🌾 **For Farmers:** Browse and rent vehicles for agriculture needs.  
+- 🚜 **For Owners:** List vehicles for rent and manage bookings.  
+- 📱 **Cross-platform:** Built with **Flutter (BLoC pattern)** for a smooth mobile experience.  
+- ⚡ **Fast & Scalable Backend:** Powered by **Go (Gin framework)**.  
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🛠️ Tech Stack  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/flutter/website/master/src/_assets/image/flutter-lockup-bg.jpg" alt="Flutter" height="70"/> &nbsp;&nbsp;
+  <img src="https://bloclibrary.dev/assets/bloc-logo-small.png" alt="BLoC" height="70"/> &nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/gin-gonic/logo/master/color.png" alt="Gin" height="70"/> &nbsp;&nbsp;
+  <img src="https://go.dev/images/go-logo-white.svg" alt="Golang" height="70"/>
+</p>
+
+- **Frontend:** Flutter + BLoC (state management)  
+- **Backend:** Golang (Gin Framework)  
+- **Database:** (choose: PostgreSQL / MySQL / MongoDB → add your choice)  
+- **Authentication:** JWT-based login  
+- **API Integration:** RESTful APIs between app and backend  
+
+---
