@@ -10,6 +10,7 @@ class AppleButton extends StatefulWidget {
   final EdgeInsetsGeometry padding;
   final double elevation;
   final bool isOutlined;
+  final LinearGradient? gradient; // Add gradient support
 
   const AppleButton({
     super.key,
@@ -21,13 +22,14 @@ class AppleButton extends StatefulWidget {
     this.padding = const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
     this.elevation = 0,
     this.isOutlined = false,
+    this.gradient, // Optional gradient parameter
   });
 
   @override
   State<AppleButton> createState() => _AppleButtonState();
 }
 
-class _AppleButtonState extends State<AppleButton> 
+class _AppleButtonState extends State<AppleButton>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _scaleAnimation;
@@ -40,13 +42,9 @@ class _AppleButtonState extends State<AppleButton>
       duration: const Duration(milliseconds: 150),
       vsync: this,
     );
-    _scaleAnimation = Tween<double>(
-      begin: 1.0,
-      end: 0.95,
-    ).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeInOut,
-    ));
+    _scaleAnimation = Tween<double>(begin: 1.0, end: 0.95).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
+    );
   }
 
   @override
@@ -103,7 +101,17 @@ class _AppleButtonState extends State<AppleButton>
               width: double.infinity,
               padding: widget.padding,
               decoration: BoxDecoration(
-                color: widget.isOutlined ? Colors.transparent : effectiveBackgroundColor,
+                // Use gradient if provided, otherwise use solid color
+                color: widget.isOutlined
+                    ? Colors.transparent
+                    : (widget.gradient == null
+                          ? effectiveBackgroundColor
+                          : null),
+                gradient: widget.isOutlined
+                    ? null
+                    : (isDisabled
+                          ? null
+                          : widget.gradient), // Apply gradient if not disabled
                 borderRadius: BorderRadius.circular(widget.borderRadius),
                 border: widget.isOutlined
                     ? Border.all(
@@ -116,7 +124,9 @@ class _AppleButtonState extends State<AppleButton>
                 boxShadow: !widget.isOutlined && !isDisabled
                     ? [
                         BoxShadow(
-                          color: effectiveBackgroundColor.withOpacity(0.3),
+                          color: widget.gradient != null
+                              ? widget.gradient!.colors.first.withOpacity(0.3)
+                              : effectiveBackgroundColor.withOpacity(0.3),
                           blurRadius: _isPressed ? 8 : 16,
                           offset: Offset(0, _isPressed ? 2 : 6),
                         ),
@@ -127,11 +137,11 @@ class _AppleButtonState extends State<AppleButton>
                 style: TextStyle(
                   color: widget.isOutlined
                       ? (isDisabled
-                          ? widget.backgroundColor.withOpacity(0.5)
-                          : widget.backgroundColor)
+                            ? widget.backgroundColor.withOpacity(0.5)
+                            : widget.backgroundColor)
                       : (isDisabled
-                          ? widget.textColor.withOpacity(0.5)
-                          : widget.textColor),
+                            ? widget.textColor.withOpacity(0.5)
+                            : widget.textColor),
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
                 ),
@@ -205,9 +215,7 @@ class AppleTextButton extends StatelessWidget {
         padding: padding,
         child: DefaultTextStyle(
           style: TextStyle(
-            color: onPressed != null
-                ? textColor
-                : textColor.withOpacity(0.5),
+            color: onPressed != null ? textColor : textColor.withOpacity(0.5),
             fontSize: 16,
             fontWeight: FontWeight.w600,
           ),

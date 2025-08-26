@@ -30,7 +30,7 @@ class ApiService {
   }) async {
     try {
       return await _dio.get(endpoint, queryParameters: queryParams, options: options);
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw _handleError(e);
     }
   }
@@ -43,7 +43,7 @@ class ApiService {
   }) async {
     try {
       return await _dio.post(endpoint, data: data, options: options);
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw _handleError(e);
     }
   }
@@ -56,7 +56,7 @@ class ApiService {
   }) async {
     try {
       return await _dio.put(endpoint, data: data, options: options);
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw _handleError(e);
     }
   }
@@ -69,18 +69,18 @@ class ApiService {
   }) async {
     try {
       return await _dio.delete(endpoint, data: data, options: options);
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw _handleError(e);
     }
   }
 
   /// Error handler
-  Exception _handleError(DioError error) {
-    if (error.type == DioErrorType.connectionTimeout) {
+  Exception _handleError(DioException error) {
+    if (error.type == DioExceptionType.connectionTimeout) {
       return Exception("Connection Timeout");
-    } else if (error.type == DioErrorType.receiveTimeout) {
+    } else if (error.type == DioExceptionType.receiveTimeout) {
       return Exception("Receive Timeout");
-    } else if (error.type == DioErrorType.badResponse) {
+    } else if (error.type == DioExceptionType.badResponse) {
       return Exception("Server Error: ${error.response?.statusCode}");
     } else {
       return Exception("Unexpected Error: ${error.message}");

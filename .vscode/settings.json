@@ -1,0 +1,78 @@
+{
+  // Dart & Flutter Settings
+  "dart.debugExternalPackageLibraries": true,
+  "dart.debugSdkLibraries": false,
+  "dart.showTodos": true,
+  "dart.showIgnoredFiles": false,
+  "dart.allowAnalytics": false,
+  "dart.allowTestsOutsideTestFolder": true,
+  "dart.previewFlutterUiGuides": true,
+  "dart.previewFlutterUiGuidesCustomTracking": true,
+  "dart.flutterHotReloadOnSave": "always",
+  "dart.flutterHotRestartOnSave": "never",
+  
+  // BLoC Specific Settings
+  "dart.analysisExcludedFolders": [
+    "build/",
+    ".dart_tool/",
+    "coverage/"
+  ],
+  
+  // Editor Settings
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.rulers": [80, 120],
+  "editor.wordWrap": "bounded",
+  "editor.wordWrapColumn": 120,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  
+  // File Associations
+  "files.associations": {
+    "*.dart": "dart",
+    "pubspec.yaml": "yaml",
+    "analysis_options.yaml": "yaml"
+  },
+  
+  // Search Settings
+  "search.exclude": {
+    "**/build/**": true,
+    "**/.dart_tool/**": true,
+    "**/coverage/**": true,
+    "**/.git/**": true,
+    "**/node_modules/**": true
+  },
+  
+  // File Watcher
+  "files.watcherExclude": {
+    "**/build/**": true,
+    "**/.dart_tool/**": true,
+    "**/coverage/**": true
+  },
+  
+  // Git Settings
+  "git.ignoreLimitWarning": true,
+  
+  // Terminal Settings
+  "terminal.integrated.env.osx": {
+    "PATH": "${env:PATH}:${env:HOME}/.pub-cache/bin"
+  },
+  "terminal.integrated.env.linux": {
+    "PATH": "${env:PATH}:${env:HOME}/.pub-cache/bin"
+  },
+  
+  // Extension Settings
+  "flutter.checkForSdkUpdates": true,
+  "flutter.showMemoryUsage": true,
+  "flutter.offline": false,
+  
+  // Workspace specific settings for BLoC development
+  "emmet.includeLanguages": {
+    "dart": "html"
+  }
+}

@@ -14,14 +14,15 @@ class RegisterPage extends StatefulWidget {
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> with TickerProviderStateMixin {
+class _RegisterPageState extends State<RegisterPage>
+    with TickerProviderStateMixin {
   final _phoneController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  
+
   late AnimationController _fadeAnimationController;
   late AnimationController _slideAnimationController;
   late Animation<double> _fadeAnimation;
@@ -38,27 +39,26 @@ class _RegisterPageState extends State<RegisterPage> with TickerProviderStateMix
       duration: const Duration(milliseconds: 1500),
       vsync: this,
     );
-    
+
     _slideAnimationController = AnimationController(
       duration: const Duration(milliseconds: 1200),
       vsync: this,
     );
 
-    _fadeAnimation = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(CurvedAnimation(
-      parent: _fadeAnimationController,
-      curve: Curves.easeInOut,
-    ));
+    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _fadeAnimationController,
+        curve: Curves.easeInOut,
+      ),
+    );
 
-    _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.3),
-      end: Offset.zero,
-    ).animate(CurvedAnimation(
-      parent: _slideAnimationController,
-      curve: Curves.easeOutCubic,
-    ));
+    _slideAnimation =
+        Tween<Offset>(begin: const Offset(0, 0.3), end: Offset.zero).animate(
+          CurvedAnimation(
+            parent: _slideAnimationController,
+            curve: Curves.easeOutCubic,
+          ),
+        );
 
     _fadeAnimationController.forward();
     _slideAnimationController.forward();
@@ -84,8 +84,8 @@ class _RegisterPageState extends State<RegisterPage> with TickerProviderStateMix
           phone: _phoneController.text.trim(),
           password: _passwordController.text,
           name: _nameController.text.trim(),
-          email: _emailController.text.trim().isNotEmpty 
-              ? _emailController.text.trim() 
+          email: _emailController.text.trim().isNotEmpty
+              ? _emailController.text.trim()
               : null,
         ),
       );
@@ -164,10 +164,7 @@ class _RegisterPageState extends State<RegisterPage> with TickerProviderStateMix
           gradient: const LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [
-              Color(0xFF34C759),
-              Color(0xFF30B852),
-            ],
+            colors: [Color(0xFF34C759), Color(0xFF30B852)],
           ),
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
@@ -205,7 +202,7 @@ class _RegisterPageState extends State<RegisterPage> with TickerProviderStateMix
             ),
             const SizedBox(height: 8),
             Text(
-              'Join AgriRide today',
+              'Join AgriRent today',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: Colors.white.withOpacity(0.7),
                 fontSize: 16,
@@ -265,7 +262,9 @@ class _RegisterPageState extends State<RegisterPage> with TickerProviderStateMix
               prefixIcon: Icons.email_rounded,
               validator: (value) {
                 if (value != null && value.isNotEmpty) {
-                  if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+                  if (!RegExp(
+                    r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                  ).hasMatch(value)) {
                     return 'Please enter a valid email address';
                   }
                 }
@@ -355,10 +354,7 @@ class _RegisterPageState extends State<RegisterPage> with TickerProviderStateMix
                 height: 1,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [
-                      Colors.transparent,
-                      Colors.white.withOpacity(0.3),
-                    ],
+                    colors: [Colors.transparent, Colors.white.withOpacity(0.3)],
                   ),
                 ),
               ),
@@ -379,10 +375,7 @@ class _RegisterPageState extends State<RegisterPage> with TickerProviderStateMix
                 height: 1,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [
-                      Colors.white.withOpacity(0.3),
-                      Colors.transparent,
-                    ],
+                    colors: [Colors.white.withOpacity(0.3), Colors.transparent],
                   ),
                 ),
               ),
@@ -437,15 +430,10 @@ class _RegisterPageState extends State<RegisterPage> with TickerProviderStateMix
     HapticFeedback.mediumImpact();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(
-          message,
-          style: const TextStyle(color: Colors.white),
-        ),
+        content: Text(message, style: const TextStyle(color: Colors.white)),
         backgroundColor: Colors.red.shade600,
         behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         margin: const EdgeInsets.all(16),
       ),
     );
@@ -455,15 +443,10 @@ class _RegisterPageState extends State<RegisterPage> with TickerProviderStateMix
     HapticFeedback.mediumImpact();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(
-          message,
-          style: const TextStyle(color: Colors.white),
-        ),
+        content: Text(message, style: const TextStyle(color: Colors.white)),
         backgroundColor: Colors.green.shade600,
         behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         margin: const EdgeInsets.all(16),
       ),
     );

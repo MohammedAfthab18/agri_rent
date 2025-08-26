@@ -60,12 +60,12 @@ class _AppleTextFieldState extends State<AppleTextField> {
       duration: const Duration(milliseconds: 200),
       curve: Curves.easeInOut,
       decoration: BoxDecoration(
-        color: _isFocused 
+        color: _isFocused
             ? const Color(0xFF1C1C1E).withOpacity(0.8)
             : const Color(0xFF1C1C1E).withOpacity(0.6),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: _isFocused 
+          color: _isFocused
               ? const Color(0xFF007AFF).withOpacity(0.6)
               : Colors.white.withOpacity(0.1),
           width: _isFocused ? 2 : 1,
@@ -110,7 +110,7 @@ class _AppleTextFieldState extends State<AppleTextField> {
           prefixIcon: widget.prefixIcon != null
               ? Icon(
                   widget.prefixIcon,
-                  color: _isFocused 
+                  color: _isFocused
                       ? const Color(0xFF007AFF)
                       : Colors.white.withOpacity(0.6),
                   size: 20,
@@ -119,8 +119,8 @@ class _AppleTextFieldState extends State<AppleTextField> {
           suffixIcon: widget.isPassword
               ? IconButton(
                   icon: Icon(
-                    _isObscured 
-                        ? Icons.visibility_off_rounded 
+                    _isObscured
+                        ? Icons.visibility_off_rounded
                         : Icons.visibility_rounded,
                     color: Colors.white.withOpacity(0.6),
                     size: 20,

@@ -1,0 +1,37 @@
+{
+  "recommendations": [
+    // Essential Flutter/Dart Extensions
+    "dart-code.flutter",
+    "dart-code.dart-code",
+    // BLoC Development Extensions
+    "felixangelov.bloc",
+    "robert-brunhage.flutter-riverpod-snippets",
+    // Code Quality & Formatting
+    "ms-vscode.vscode-json",
+    "redhat.vscode-yaml",
+    "ms-vscode.vscode-eslint",
+    // Git & Version Control
+    "eamodio.gitlens",
+    "github.vscode-pull-request-github",
+    // Productivity Extensions
+    "ms-vscode.vscode-todo-highlight",
+    "gruntfuggly.todo-tree",
+    "aaron-bond.better-comments",
+    "streetsidesoftware.code-spell-checker",
+    // Testing & Debugging
+    "ms-vscode.test-adapter-converter",
+    "hbenl.vscode-test-explorer",
+    // Theming & UI (Optional)
+    "pkief.material-icon-theme",
+    "bradlc.vscode-tailwindcss",
+    // Utilities
+    "ms-vscode.vscode-typescript-next",
+    "ms-vscode.vscode-json",
+    "ms-vscode.hexeditor"
+  ],
+  "unwantedRecommendations": [
+    "ms-vscode.vscode-java-pack",
+    "ms-python.python",
+    "ms-dotnettools.csharp"
+  ]
+}

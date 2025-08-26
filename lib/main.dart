@@ -81,12 +81,10 @@ class AgriRentApp extends StatelessWidget {
         primary: Color(0xFF007AFF),
         secondary: Color(0xFF34C759),
         surface: Color(0xFF1C1C1E),
-        background: Colors.black,
         error: Color(0xFFFF453A),
         onPrimary: Colors.white,
         onSecondary: Colors.white,
         onSurface: Colors.white,
-        onBackground: Colors.white,
         onError: Colors.white,
       ),
       appBarTheme: const AppBarTheme(

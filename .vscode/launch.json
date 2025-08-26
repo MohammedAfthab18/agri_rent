@@ -1,0 +1,79 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Flutter App",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart"
+    },
+    {
+      "name": "Debug Flutter App (Profile Mode)",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "Debug Flutter App (Release Mode)",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "flutterMode": "release"
+    },
+    {
+      "name": "Debug Flutter App (Web)",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "deviceId": "chrome",
+      "args": [
+        "--web-port",
+        "3000"
+      ]
+    },
+    {
+      "name": "Debug Flutter App (iOS Simulator)",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "deviceId": "ios"
+    },
+    {
+      "name": "Debug Flutter App (Android)",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "deviceId": "android"
+    },
+    {
+      "name": "Debug Tests",
+      "type": "dart",
+      "request": "launch",
+      "program": "test/",
+      "args": [
+        "--coverage"
+      ]
+    },
+    {
+      "name": "Debug BLoC Integration Tests",
+      "type": "dart",
+      "request": "launch",
+      "program": "test/blocs/",
+      "args": [
+        "--coverage",
+        "--reporter",
+        "expanded"
+      ]
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug App + Tests",
+      "configurations": [
+        "Debug Flutter App",
+        "Debug Tests"
+      ]
+    }
+  ]
+}
